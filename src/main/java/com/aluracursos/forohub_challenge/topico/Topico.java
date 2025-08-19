@@ -1,6 +1,7 @@
 package com.aluracursos.forohub_challenge.topico;
 
 import jakarta.persistence.*;
+import jakarta.validation.Valid;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -32,5 +33,20 @@ public class Topico {
         this.estadoTopico = EstadoTopico.NO_RESPONDIDO;
         this.autor = datos.autor();
         this.curso = datos.curso();
+    }
+
+    public void actualizarInformaciones(@Valid DatosActualizacionTopico datos) {
+        if(datos.titulo() != null) {
+            this.titulo = datos.titulo();
+        }
+        if(datos.mensaje() != null) {
+            this.mensaje = datos.mensaje();
+        }
+        if(datos.autor() != null) {
+            this.autor = datos.autor();
+        }
+        if(datos.curso() != null) {
+            this.curso = datos.curso();
+        }
     }
 }

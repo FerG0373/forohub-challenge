@@ -1,9 +1,6 @@
 package com.aluracursos.forohub_challenge.controller;
 
-import com.aluracursos.forohub_challenge.topico.DatosListaTopico;
-import com.aluracursos.forohub_challenge.topico.DatosRegistroTopico;
-import com.aluracursos.forohub_challenge.topico.Topico;
-import com.aluracursos.forohub_challenge.topico.TopicoRepository;
+import com.aluracursos.forohub_challenge.topico.*;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -54,7 +51,8 @@ public class TopicoController {
     // PUT
     @Transactional
     @PutMapping
-    public void actualizarTopico(@RequestBody @Valid DatosRegistroTopico datos) {
+    public void actualizarTopico(@RequestBody @Valid DatosActualizacionTopico datos) {
         var topico = repository.getReferenceById(datos.id());
+        topico.actualizarInformaciones(datos);
     }
 }
