@@ -1,9 +1,11 @@
 package com.aluracursos.forohub_challenge.topico;
 
 
+import jakarta.validation.constraints.NotBlank;
+
 public record DatosRegistroTopico(
-        String titulo,
-        String mensaje,
-        String autor,
-        String curso) {
+        @NotBlank String titulo,
+        @NotBlank String mensaje,
+        @NotBlank String autor,
+        @NotBlank String curso) {
 }
