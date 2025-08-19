@@ -19,6 +19,6 @@ public record DatosListaTopico(
                 topico.getEstadoTopico(),
                 topico.getAutor(),
                 topico.getCurso()
-                );
+        );
     }
 }
