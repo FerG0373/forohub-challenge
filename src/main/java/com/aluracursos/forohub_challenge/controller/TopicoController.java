@@ -50,4 +50,11 @@ public class TopicoController {
         // Devolver el DTO con el estado HTTP 200 OK
         return ResponseEntity.ok(datosDetalle);
     }
+
+    // PUT
+    @Transactional
+    @PutMapping
+    public void actualizarTopico(@RequestBody @Valid DatosRegistroTopico datos) {
+        var topico = repository.getReferenceById(datos.id());
+    }
 }
