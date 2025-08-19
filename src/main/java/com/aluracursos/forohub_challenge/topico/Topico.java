@@ -1,16 +1,16 @@
 package com.aluracursos.forohub_challenge.topico;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+
+import java.time.LocalDateTime;
 
 @Table(name = "topicos")
 @Entity(name = "Topico")
 @Getter
 @NoArgsConstructor
-@AllArgsConstructor
 @EqualsAndHashCode(of = "id")
 public class Topico {
     @Id
@@ -18,6 +18,9 @@ public class Topico {
     private Long id;
     private String titulo;
     private String mensaje;
+    private LocalDateTime fechaCreacion;
+    @Enumerated(EnumType.STRING)
+    private EstadoTopico estadoTopico;
     private String autor;
     private String curso;
 
@@ -25,6 +28,8 @@ public class Topico {
         this.id = null;
         this.titulo = datos.titulo();
         this.mensaje = datos.mensaje();
+        this.fechaCreacion = LocalDateTime.now();
+        this.estadoTopico = EstadoTopico.NO_RESPONDIDO;
         this.autor = datos.autor();
         this.curso = datos.curso();
     }
