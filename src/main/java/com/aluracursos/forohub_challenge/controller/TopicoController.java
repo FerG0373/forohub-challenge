@@ -1,6 +1,9 @@
 package com.aluracursos.forohub_challenge.controller;
 
-import com.aluracursos.forohub_challenge.topico.*;
+import com.aluracursos.forohub_challenge.domain.topico.DatosListaTopico;
+import com.aluracursos.forohub_challenge.domain.topico.DatosRegistroTopico;
+import com.aluracursos.forohub_challenge.domain.topico.Topico;
+import com.aluracursos.forohub_challenge.domain.topico.TopicoRepository;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -11,8 +14,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("/topicos")
